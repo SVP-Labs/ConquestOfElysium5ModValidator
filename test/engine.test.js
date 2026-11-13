@@ -40,3 +40,14 @@ test("a quirk with a condition only fires when it matches", () => {
   assert.ok(rulesOf('playerevent\nnewunits -2 "100*Spearman"\nendevent').includes("engine-quirk"));
   assert.ok(!rulesOf('playerevent\nnewunits -2 "12*Spearman"\nendevent').includes("engine-quirk"));
 });
+
+test("terrain numbers above 1999 do not exist", () => {
+  const problem = firstProblem("selectterr 2500");
+  assert.equal(problem.rule, "unknown-terrain");
+  assert.match(problem.hint, /0-1999/);
+  assertClean("selectterr 1500");
+});
+
+test("mod terrains go up to 1999", () => {
+  assertClean("selectterr 1800\nname \"Barrow\"\nnewclass\nsetclassname \"C\"\nhometerr 1800");
+});

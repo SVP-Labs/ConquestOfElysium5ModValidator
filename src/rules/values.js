@@ -20,8 +20,8 @@ const KINDS = ["terrain", "classnbr", "ritpow", "resource", "player"];
  */
 const PLAYER_RANGE = { min: -4, max: 30 };
 
-/** Terrains 0-499 belong to the base game, 500-999 are the modder's to create. */
-const MOD_TERRAIN_RANGE = { min: 500, max: 999 };
+/** Terrains 0-499 belong to the base game, 500-1999 are the modder's to create (5.42 raised the cap from 1000). */
+const MOD_TERRAIN_RANGE = { min: 500, max: 1999 };
 
 export const levels = {
   "unknown-terrain": "warning",
@@ -58,7 +58,11 @@ function checkTerrain(number, at, registry, bag) {
     rule: "unknown-terrain",
     at,
     message: `terrain ${number} is neither a base game terrain nor created by this mod`,
-    hint: inModRange ? "select it with selectterr first" : "base game terrains are 0-499",
+    hint: inModRange
+      ? "select it with selectterr first"
+      : number > MOD_TERRAIN_RANGE.max
+        ? `the game has terrains 0-${MOD_TERRAIN_RANGE.max} only`
+        : "base game terrains are 0-499",
   });
 }
 
