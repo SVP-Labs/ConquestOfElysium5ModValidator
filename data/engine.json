@@ -1,0 +1,5767 @@
+{
+ "meta": {
+  "game": "5.42",
+  "source": "coe5re reverse-engineering findings (clean side)",
+  "generated": "2026-11-13",
+  "commands": 859
+ },
+ "removed": [
+  "+seasondelay",
+  "celwander2",
+  "hadeswander2",
+  "infwander2",
+  "wander2"
+ ],
+ "added": [
+  "+minunitshere",
+  "+seasonleft",
+  "adventurer",
+  "affectfemale",
+  "brigand",
+  "citadel2",
+  "coeversion",
+  "holyvengeance",
+  "modversion",
+  "partyleader",
+  "pickupadvent",
+  "pickupbrigands"
+ ],
+ "commands": {
+  "+aiplayer": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+armyowner": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+chance": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+class": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+hasaffunithere": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+hascom": {
+   "sections": [
+    "event"
+   ],
+   "quirk": {
+    "level": "warning",
+    "message": "`+hascom` can never be true in 5.42 (the commander lookup runs with no square); `-hascom` always passes"
+   }
+  },
+  "+hascomhere": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+hasitem": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+hasitemhere": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+hasunit": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+hasunithere": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+humanplayer": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+minanimalcorpses": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+mincorpses": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+minhumancorpses": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+minhumanoidcorpses": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+minterrains": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+minturnnbr": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+minunits": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+minunitshere": {
+   "sections": [
+    "event"
+   ],
+   "quirk": {
+    "level": "warning",
+    "message": "in a squareevent the first square short of units ends the whole event, not just that square"
+   }
+  },
+  "+ownsloc": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+ownsloctarg": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+plane": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+player": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+season": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+seasonleft": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+squareactivated": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+squarename": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+squareowner": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+terrain": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+turnnbr": {
+   "sections": [
+    "event"
+   ]
+  },
+  "+varequal": {
+   "sections": [
+    "event"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 0,
+     "max": 9999,
+     "sections": [
+      "event"
+     ]
+    }
+   ]
+  },
+  "+vargreater": {
+   "sections": [
+    "event"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 0,
+     "max": 9999,
+     "sections": [
+      "event"
+     ]
+    }
+   ]
+  },
+  "+varlesser": {
+   "sections": [
+    "event"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 0,
+     "max": 9999,
+     "sections": [
+      "event"
+     ]
+    }
+   ]
+  },
+  "+varvarequal": {
+   "sections": [
+    "event"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 0,
+     "max": 9999,
+     "sections": [
+      "event"
+     ]
+    },
+    {
+     "index": 1,
+     "min": 0,
+     "max": 9999,
+     "sections": [
+      "event"
+     ]
+    }
+   ]
+  },
+  "+varvargreater": {
+   "sections": [
+    "event"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 0,
+     "max": 9999,
+     "sections": [
+      "event"
+     ]
+    },
+    {
+     "index": 1,
+     "min": 0,
+     "max": 9999,
+     "sections": [
+      "event"
+     ]
+    }
+   ]
+  },
+  "+varvarlesser": {
+   "sections": [
+    "event"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 0,
+     "max": 9999,
+     "sections": [
+      "event"
+     ]
+    },
+    {
+     "index": 1,
+     "min": 0,
+     "max": 9999,
+     "sections": [
+      "event"
+     ]
+    }
+   ]
+  },
+  "absorbdead": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "acidblood": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "acidres": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "acutesenses": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "addallforests": {
+   "sections": [
+    "terrgroup"
+   ]
+  },
+  "addalljungles": {
+   "sections": [
+    "terrgroup"
+   ]
+  },
+  "addallsettlements": {
+   "sections": [
+    "terrgroup"
+   ]
+  },
+  "addcomrec": {
+   "sections": [
+    "class"
+   ]
+  },
+  "addeventvar": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "addmercrec": {
+   "sections": [
+    "class"
+   ]
+  },
+  "addresources": {
+   "sections": [
+    "event"
+   ]
+  },
+  "addstartcom": {
+   "sections": [
+    "class"
+   ]
+  },
+  "addstartterr": {
+   "sections": [
+    "class"
+   ]
+  },
+  "addstartunits": {
+   "sections": [
+    "class"
+   ],
+   "clamps": [
+    {
+     "index": 1,
+     "min": 1,
+     "max": null,
+     "sections": [
+      "class"
+     ]
+    }
+   ]
+  },
+  "addstring": {
+   "sections": [
+    "ritual"
+   ]
+  },
+  "addterr": {
+   "sections": [
+    "terrgroup"
+   ]
+  },
+  "addunitrec": {
+   "sections": [
+    "class"
+   ]
+  },
+  "addvar": {
+   "sections": [
+    "event"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 0,
+     "max": 9999,
+     "sections": [
+      "event"
+     ]
+    }
+   ]
+  },
+  "adventurer": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "affectanimal": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "affectfemale": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "affecthuman": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "affectmale": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "affectundead": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "affres": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "afftarg": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "afterprev": {
+   "sections": [
+    "ritual"
+   ]
+  },
+  "agarthashape": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "aggressive": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "aialways": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "aiapprspam": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "aiclass": {
+   "sections": [
+    "class"
+   ]
+  },
+  "aigoldrally": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "aihold": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "aimaxcast": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "aimaxshop": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "ainofollower": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "ainosimul": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "ainotclose1": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "ainotclose2": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "ainotclose3": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "ainothere": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "ainotnearhome": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "aionlyplane": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "aipowcom1": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "aipowcom2": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "aipowcom3": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "airare": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "airbreather": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "airestrig": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "airshield": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "aitarg": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "aiweakonly": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "aiwhere": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "allitemslots": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "allrit": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "alone": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "alterloc": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "alterterrain": {
+   "sections": [
+    "event"
+   ]
+  },
+  "an": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "ancforest1": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "anchored": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "animal": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "aoe": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "apcost": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual",
+    "terrain"
+   ]
+  },
+  "ape": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "armor": {
+   "sections": [
+    "item",
+    "monster"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 0,
+     "max": null,
+     "sections": [
+      "monster"
+     ]
+    }
+   ]
+  },
+  "armytrainer": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "arrow": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "assassinweapon": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "atavirec": {
+   "sections": [
+    "class"
+   ]
+  },
+  "autoastrology": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "awakenfungus": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "awakentrees": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "awe": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "aztlanshape": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "badsight": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "banishsurv": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "barricade": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "batmap": {
+   "sections": [
+    "terrain"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 1,
+     "max": 255,
+     "sections": [
+      "terrain"
+     ]
+    }
+   ]
+  },
+  "battlefast": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "battleslow": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "battleslow2": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "benrestrict": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "bentarg": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "bentargall": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "bentargvar": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "berserker": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "blue": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "bluntres": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "bonusrelics": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "bramblegate": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "brigand": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "burnable": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "burnforest": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "castcount": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "castertarg": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "cave": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "celestialshape": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "celwander": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "centercaster": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "centerloc": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "centspawn": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "changeowner": {
+   "sections": [
+    "event"
+   ]
+  },
+  "changetemp": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "charmres": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "choosefxtarg": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "chooseloc": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "chooseterrloc": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "chopforest": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "citadel": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "citadel2": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "cityname": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "classabdescr": {
+   "sections": [
+    "class"
+   ]
+  },
+  "classcitterr": {
+   "sections": [
+    "class"
+   ]
+  },
+  "classcost": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "classdescr": {
+   "sections": [
+    "class"
+   ]
+  },
+  "classforestcit": {
+   "sections": [
+    "class"
+   ]
+  },
+  "classminecit": {
+   "sections": [
+    "class"
+   ]
+  },
+  "classtune": {
+   "sections": [
+    "class"
+   ]
+  },
+  "classwoodencit": {
+   "sections": [
+    "class"
+   ]
+  },
+  "cleareventvar": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "clearfort": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "clearmove": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "clearrec": {
+   "sections": [
+    "class"
+   ]
+  },
+  "clearritspec": {
+   "sections": [
+    "ritual"
+   ]
+  },
+  "clearspec": {
+   "sections": [
+    "monster",
+    "terrain"
+   ]
+  },
+  "clearsquarespec": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "clearstartterr": {
+   "sections": [
+    "class"
+   ]
+  },
+  "clearstartunits": {
+   "sections": [
+    "class"
+   ]
+  },
+  "clearweapons": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "clearwspec": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "closewin": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "cloudgate": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "clumsy": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "coastal": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "coeversion": {
+   "sections": [
+    "mod"
+   ]
+  },
+  "coldaura": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "coldblood": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "coldheal": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "coldres": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "colonymsg": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "colonyterr": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "combatspell": {
+   "sections": [
+    "item"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": -1,
+     "max": 2,
+     "sections": [
+      "item"
+     ]
+    }
+   ]
+  },
+  "combatsum": {
+   "sections": [
+    "item"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": -1,
+     "max": 1,
+     "sections": [
+      "item"
+     ]
+    }
+   ]
+  },
+  "combustionaura": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "comname": {
+   "sections": [
+    "event"
+   ]
+  },
+  "confusionaura": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "copyritual": {
+   "sections": [
+    "ritual"
+   ]
+  },
+  "copyspr": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "copystats": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "copyvar": {
+   "sections": [
+    "event"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 0,
+     "max": 9999,
+     "sections": [
+      "event"
+     ]
+    },
+    {
+     "index": 1,
+     "min": 0,
+     "max": 9999,
+     "sections": [
+      "event"
+     ]
+    }
+   ]
+  },
+  "cost": {
+   "sections": [
+    "ritual"
+   ]
+  },
+  "createcit": {
+   "sections": [
+    "class"
+   ]
+  },
+  "ctrlchance": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "cureoneaff": {
+   "sections": [
+    "event",
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "curseditem": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "darkbless": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "dead": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "deadforest1": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "deadforest2": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "deepsleeper": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "deepspawn": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "defctrl": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "defiler": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "demonic": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "deployoutside": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "descr": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "description": {
+   "sections": [
+    "mod"
+   ]
+  },
+  "desert": {
+   "sections": [
+    "item",
+    "monster",
+    "terrain"
+   ]
+  },
+  "desert1": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "desert2": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "desert3": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "desertok": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "desertstealth": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "desolator": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "desolcloud": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "destroyterr": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "destroyto": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "digest": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "diseasecloud": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "diseaseres": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "diseaseshield": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "displaced": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "dispossess": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "dmg": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "dmgonterr": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "dmgonterrbonus": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "dmgtype": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "dragon": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "drain": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "drawsize": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "drown": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "earthbarricade": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "eastcoast": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "easymr": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "eatdead": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "eatdeadcap": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "eatvillage": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "el": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "elementalshape": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "elysiumshape": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "enchantedgate": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "enchherereq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "enchreqterr": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "endevent": {
+   "sections": [
+    "event"
+   ]
+  },
+  "ethereal": {
+   "sections": [
+    "item",
+    "monster",
+    "weapon"
+   ]
+  },
+  "evasion": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "eventvarreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "expendable": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "extracost": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "extraeyes": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "failplayer": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "falselife": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "farsight": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual",
+    "terrain"
+   ]
+  },
+  "farsightsea": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "farsummon": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "farvis": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "fast": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "fastheal": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "fear": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "female": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "fewmonreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "fillmirror": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "fireaura": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "fireexpl": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "fireres": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "firstshape": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "float": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "flying": {
+   "sections": [
+    "item",
+    "monster",
+    "weapon"
+   ]
+  },
+  "flying2": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "flylook": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "flymode": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "flysound": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "followstupid": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "fontfile": {
+   "sections": [
+    "mod"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 0,
+     "max": 2,
+     "sections": [
+      "mod"
+     ]
+    }
+   ]
+  },
+  "forest": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "forest1": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "forest2": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "forestcitadel": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "forestheart": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "foreststealth": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "forgetcurrit": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "forgetrits": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "fortreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "free": {
+   "sections": [
+    "ritual"
+   ]
+  },
+  "frontpos": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "fullsweep": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "fungi": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "fungus": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual",
+    "terrain"
+   ]
+  },
+  "fxreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "gainbless": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "gaindarkbless": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "gainrit": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "gainxp": {
+   "sections": [
+    "event"
+   ]
+  },
+  "gates1": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "gatheranygems": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "gatherfungus": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "gathergems": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "gatherhands": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "gatherherbs": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "gatherlifeforce": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "gatherrelics": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "gathersacr": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "gatherweed": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "gems": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "ghoulify": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "goblin": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "gold": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual",
+    "terrain"
+   ]
+  },
+  "goldbonus": {
+   "sections": [
+    "class",
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "goldboost": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "goldcarrier": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "greedy": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "growhp": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "growoffs": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "growterr": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "growtime": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "hadesres": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "hadesshape": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "hadeswander": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "hands": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual",
+    "terrain"
+   ]
+  },
+  "hardfly": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "hardmorale": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "hardmr": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "harpyspawn": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "harvest": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "hasportalreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "hatesterr": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "healonterr": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "herbs": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual",
+    "terrain"
+   ]
+  },
+  "hideanimals": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "hoburg": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "holdit": {
+   "sections": [
+    "event"
+   ]
+  },
+  "holy": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "holykill": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "holyvengeance": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "homecitreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "homeplane": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "homereq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "hometerr": {
+   "sections": [
+    "class"
+   ]
+  },
+  "horror": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "hp": {
+   "sections": [
+    "item",
+    "monster"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 1,
+     "max": null,
+     "sections": [
+      "monster"
+     ]
+    }
+   ]
+  },
+  "hpoverflow": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "huge": {
+   "sections": [
+    "item",
+    "monster",
+    "weapon"
+   ]
+  },
+  "human": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "humancost": {
+   "sections": [
+    "class"
+   ]
+  },
+  "iceprot": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "icon": {
+   "sections": [
+    "mod"
+   ]
+  },
+  "immobile": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "immortal": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "immortalap": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "inanimate": {
+   "sections": [
+    "item",
+    "monster",
+    "weapon"
+   ]
+  },
+  "incorporate": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "indepitem": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "indwander": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "infernoshape": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "infwander": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "init": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "insanity": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "invert": {
+   "sections": [
+    "terrgroup"
+   ]
+  },
+  "invisible": {
+   "sections": [
+    "item",
+    "monster",
+    "terrain"
+   ]
+  },
+  "invseason": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "invul": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "iron": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual",
+    "terrain"
+   ]
+  },
+  "ironbonus": {
+   "sections": [
+    "class",
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "ironboost": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "ironcarrier": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "irongate": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "itemwep": {
+   "sections": [
+    "item"
+   ]
+  },
+  "jungle1": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "jungle2": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "killsquare": {
+   "sections": [
+    "event"
+   ]
+  },
+  "killtarg": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "killunit": {
+   "sections": [
+    "event"
+   ]
+  },
+  "kobold": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "lairgoldpen": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "landshape": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "large": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "largeshield": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "leadership": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "level": {
+   "sections": [
+    "ritual"
+   ]
+  },
+  "levelreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "levelup": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "levelupmon": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "libbonusdescr": {
+   "sections": [
+    "class"
+   ]
+  },
+  "libmastery": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "library1": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "library2": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "libraryrec": {
+   "sections": [
+    "class"
+   ]
+  },
+  "lifeforce": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual",
+    "terrain"
+   ]
+  },
+  "likescoast": {
+   "sections": [
+    "class"
+   ]
+  },
+  "likesnorth": {
+   "sections": [
+    "class"
+   ]
+  },
+  "likessouth": {
+   "sections": [
+    "class"
+   ]
+  },
+  "likesterr": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "likestoburn": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "limitgold": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "limitiron": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "limittrade": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "lob": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "localgoldbonus": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "localironbonus": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "localleadership": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "loner": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "look": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual",
+    "weapon"
+   ]
+  },
+  "lookslike": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "lovesterr": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "lucky": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "madcultist": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "magicboost": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "magicshield": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "magicwalls": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "makeaff": {
+   "sections": [
+    "event"
+   ]
+  },
+  "makeben": {
+   "sections": [
+    "event"
+   ]
+  },
+  "makeblind": {
+   "sections": [
+    "event"
+   ]
+  },
+  "makecolony": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "makediseased": {
+   "sections": [
+    "event"
+   ]
+  },
+  "makeminoraff": {
+   "sections": [
+    "event"
+   ]
+  },
+  "makenhwound": {
+   "sections": [
+    "event"
+   ]
+  },
+  "makeportal": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "makeruin": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "makestationary": {
+   "sections": [
+    "event"
+   ]
+  },
+  "mapfile": {
+   "sections": [
+    "mod"
+   ]
+  },
+  "maptele": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "mastery": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "maxcast": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "maxsinners": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "maxsum": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "meleeambush": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "meleeweapon": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "meleeweapon50s": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "meleeweaponbonus": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "meleeweaponlong": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "meleeweaponspec": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "melt": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "melts": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "mercboost": {
+   "sections": [
+    "class"
+   ]
+  },
+  "mercpricemult": {
+   "sections": [
+    "class"
+   ]
+  },
+  "message": {
+   "sections": [
+    "event"
+   ]
+  },
+  "mind": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "mindexpl": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "mine": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "mines1": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "minmonreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "minorstartaff": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "minospawn": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "mirror": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "mirrorammo": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "mirrorimages": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "mirrortarg": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "miscslots": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "mistrare": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "misty": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "modprio": {
+   "sections": [
+    "mod"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 1,
+     "max": 9,
+     "sections": [
+      "mod"
+     ]
+    }
+   ]
+  },
+  "modversion": {
+   "sections": [
+    "mod"
+   ]
+  },
+  "money1": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "money2": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "monplayerreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "montag": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "montarg": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "monworldreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "mor": {
+   "sections": [
+    "monster"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 1,
+     "max": null,
+     "sections": [
+      "monster"
+     ]
+    }
+   ]
+  },
+  "morale": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual",
+    "weapon"
+   ]
+  },
+  "more1spells": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "more2spells": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "more3spells": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "motherspawn": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "mountain": {
+   "sections": [
+    "item",
+    "monster",
+    "terrain"
+   ]
+  },
+  "mountain1": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "mountain2": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "movehome": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "mr": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual",
+    "weapon"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 1,
+     "max": null,
+     "sections": [
+      "monster"
+     ]
+    }
+   ]
+  },
+  "multiplane": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "mundane": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "mutate": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "name": {
+   "sections": [
+    "item",
+    "monster",
+    "terrain"
+   ]
+  },
+  "namesquare": {
+   "sections": [
+    "event"
+   ]
+  },
+  "nametype": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nearby1req": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nearby3req": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nearby5req": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nearby7req": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nearby99req": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nevercold": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "neverturn": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "newclass": {
+   "sections": [
+    "mod"
+   ]
+  },
+  "newitem": {
+   "sections": [
+    "event",
+    "mod"
+   ]
+  },
+  "newlocplanes": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "newmonster": {
+   "sections": [
+    "mod"
+   ]
+  },
+  "newrit": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "newritpow": {
+   "sections": [
+    "mod"
+   ]
+  },
+  "newritual": {
+   "sections": [
+    "mod"
+   ]
+  },
+  "newspell1": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "newspell2": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "newspell3": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "newunits": {
+   "sections": [
+    "event"
+   ],
+   "quirk": {
+    "level": "warning",
+    "when": "(^|&\\s*)\\d{3,}\\*",
+    "message": "a count of three or more digits is not understood and creates one unit; use dice (e.g. `3d6*`) or a count up to 99"
+   }
+  },
+  "newweapon": {
+   "sections": [
+    "mod"
+   ]
+  },
+  "next": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "nextalways": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "nextalwayswep": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "nextdmg": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "nexttoo": {
+   "sections": [
+    "ritual"
+   ]
+  },
+  "nextwep": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "nobootslots": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "nocombat": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "nodemon": {
+   "sections": [
+    "ritual"
+   ]
+  },
+  "nodrop": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nodrown": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "noeventvarreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "noeyes": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nofemale": {
+   "sections": [
+    "ritual"
+   ]
+  },
+  "nofortreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nofxherereq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "noheal": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "noland": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "noleader": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "nomonelysiumreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nomonhomereq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nomonmasteryreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nomonplayerreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nomonreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nomonworldreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nonearby1req": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nonearby3req": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nonearby5req": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nonearby7req": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nonearby99req": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "nonmaginvul": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "nonruin1": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "noplanecamo": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "noplanereq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "noportalreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "north1": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "nosight": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "noslots": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "nosnowpen": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "nostart": {
+   "sections": [
+    "ritual",
+    "terrain"
+   ]
+  },
+  "nostdrec": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "nostdtroops": {
+   "sections": [
+    "class"
+   ]
+  },
+  "nostr": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "notforpoor": {
+   "sections": [
+    "ritual"
+   ]
+  },
+  "noundead": {
+   "sections": [
+    "ritual"
+   ]
+  },
+  "nozoc": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "oneshot": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "onlyenemy": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "onlyfriend": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "ornext": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "ornext2": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "ornext3": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "ornext4": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "ornext5": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "otherplanar": {
+   "sections": [
+    "class"
+   ]
+  },
+  "ownable": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "partyleader": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "passwall": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "pathboost": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "petriaura": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "phantasm": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "pickupadvent": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "pickupanimals": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "pickupbrigands": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "pierceres": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "planeloc": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "planereq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "planeshift": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "planeswap": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "playercolor": {
+   "sections": [
+    "mod"
+   ]
+  },
+  "playerevent": {
+   "sections": [
+    "event"
+   ]
+  },
+  "poison": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "poisonaura": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "poisoncloud": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "poisonexpl": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "poisonres": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "poisonspikes": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "pop": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "port": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "portalroom": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "power": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "prebatweapon": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "primable": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "primal": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "primalcult": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "primalshape": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "primifier": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "promote": {
+   "sections": [
+    "event"
+   ]
+  },
+  "promoteunits": {
+   "sections": [
+    "event"
+   ],
+   "clamps": [
+    {
+     "index": 1,
+     "min": 1,
+     "max": null,
+     "sections": [
+      "event"
+     ]
+    }
+   ]
+  },
+  "promotion": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "promplayer": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "protection": {
+   "sections": [
+    "item"
+   ]
+  },
+  "purple": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "putcorpses": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "putridexpl": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "raiseanimals": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "raisedead": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "randitem": {
+   "sections": [
+    "event"
+   ]
+  },
+  "randloc": {
+   "sections": [
+    "event"
+   ]
+  },
+  "randmisc": {
+   "sections": [
+    "event"
+   ]
+  },
+  "randnewloc": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "randomitem": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "randomloc": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "randommisc": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "randomrare": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "randomweapon": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "randterrloc": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "range": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "rangedweapon": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "rangedweapon25": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "rangedweapon50": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "rangedweapon50s": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "rangedweapon50x": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "rangedweaponbonus": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "rangepen": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "rank": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": -1,
+     "max": 1,
+     "sections": [
+      "monster"
+     ]
+    }
+   ]
+  },
+  "rare": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "rarestart": {
+   "sections": [
+    "ritual"
+   ]
+  },
+  "rarity": {
+   "sections": [
+    "item"
+   ]
+  },
+  "realport": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "reanimate": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual",
+    "weapon"
+   ]
+  },
+  "rearpos": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "rebate": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "rebatefx25": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "rebatefx50": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "rebatelvl": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "rebateterr20": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "rebateterr50": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "recasschance": {
+   "sections": [
+    "class"
+   ]
+  },
+  "recherochance": {
+   "sections": [
+    "class"
+   ]
+  },
+  "reclimiter": {
+   "sections": [
+    "class"
+   ]
+  },
+  "recterr": {
+   "sections": [
+    "class"
+   ]
+  },
+  "recwizchance": {
+   "sections": [
+    "class"
+   ]
+  },
+  "recxcost": {
+   "sections": [
+    "class"
+   ]
+  },
+  "reducetown": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "reform": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "reformdestroy": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "reformloc": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "regeneration": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "releasephant": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "releaserate": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "releasespell": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "relics": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "reload1": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "reload2": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "reload3": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "reloadsnd": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "removeanimalcorpses": {
+   "sections": [
+    "event"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 1,
+     "max": 10000,
+     "sections": [
+      "event"
+     ]
+    }
+   ],
+   "quirk": {
+    "level": "error",
+    "message": "this event command aborts the game in 5.42 (fatal error \"rd: bad ct\")"
+   }
+  },
+  "removecorpses": {
+   "sections": [
+    "event"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 1,
+     "max": 10000,
+     "sections": [
+      "event"
+     ]
+    }
+   ]
+  },
+  "removehumanoidcorpses": {
+   "sections": [
+    "event"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 1,
+     "max": 10000,
+     "sections": [
+      "event"
+     ]
+    }
+   ]
+  },
+  "removeitem": {
+   "sections": [
+    "event"
+   ]
+  },
+  "remterr": {
+   "sections": [
+    "terrgroup"
+   ]
+  },
+  "replicate": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "reqterr": {
+   "sections": [
+    "class"
+   ]
+  },
+  "resreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "resrestrict": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "reveal": {
+   "sections": [
+    "event"
+   ],
+   "clamps": [
+    {
+     "index": 1,
+     "min": 5,
+     "max": 2000,
+     "sections": [
+      "event"
+     ]
+    },
+    {
+     "index": 2,
+     "min": 0,
+     "max": 255,
+     "sections": [
+      "event"
+     ]
+    }
+   ]
+  },
+  "revertmirror": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "revertowner": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "ritequipall": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "ritmaxrange": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "ritpow": {
+   "sections": [
+    "ritual"
+   ]
+  },
+  "ritrebate": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "riverdmg": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "sacr": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "sacrscale": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "sample": {
+   "sections": [
+    "mod"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 0,
+     "max": 248,
+     "sections": [
+      "mod"
+     ]
+    }
+   ]
+  },
+  "sampleisloopmusic": {
+   "sections": [
+    "mod"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 0,
+     "max": 249,
+     "sections": [
+      "mod"
+     ]
+    }
+   ]
+  },
+  "sampleismusic": {
+   "sections": [
+    "mod"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 0,
+     "max": 249,
+     "sections": [
+      "mod"
+     ]
+    }
+   ]
+  },
+  "saner": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "satyrspawn": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "savanna2": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "scatter": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "scatterloc": {
+   "sections": [
+    "event"
+   ]
+  },
+  "scatterscry": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "scourgedefiler": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "scry": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "scrycost": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "scryloc": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "seasonreq": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "secondshape": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "seduceaura": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "seegems": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "seepast": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "selectclass": {
+   "sections": [
+    "class"
+   ]
+  },
+  "selectfx": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "selectitem": {
+   "sections": [
+    "mod"
+   ]
+  },
+  "selectmonster": {
+   "sections": [
+    "mod"
+   ],
+   "clamps": [
+    {
+     "index": 1,
+     "min": 1,
+     "max": null,
+     "sections": [
+      "mod"
+     ]
+    }
+   ]
+  },
+  "selectritual": {
+   "sections": [
+    "mod"
+   ],
+   "clamps": [
+    {
+     "index": 1,
+     "min": 0,
+     "max": null,
+     "sections": [
+      "mod"
+     ]
+    }
+   ]
+  },
+  "selectterr": {
+   "sections": [
+    "mod"
+   ]
+  },
+  "selectterrgroup": {
+   "sections": [
+    "mod"
+   ]
+  },
+  "selectweapon": {
+   "sections": [
+    "mod"
+   ]
+  },
+  "semistupid": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "sensedead": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "setclassname": {
+   "sections": [
+    "class"
+   ]
+  },
+  "setcreator": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "seteventvar": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "setfx": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "setloc": {
+   "sections": [
+    "event"
+   ]
+  },
+  "setmaincom": {
+   "sections": [
+    "class"
+   ]
+  },
+  "setname": {
+   "sections": [
+    "terrgroup"
+   ]
+  },
+  "setplane": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "setplayer": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "settlement": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "setvar": {
+   "sections": [
+    "event",
+    "item",
+    "monster",
+    "ritual"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 0,
+     "max": 9999,
+     "sections": [
+      "event"
+     ]
+    }
+   ]
+  },
+  "shardexpl": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "shield": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "shieldneg": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "ship": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "shipmove": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "shockaura": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "shockres": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "shrinkhp": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "siegetunnel": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "siegeweapon": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "simulacrum": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "sitepopboost": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "size1x1": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "size2x2": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "skyshape": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "slashres": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "slavehunt": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "sleeper": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "sleepres": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "slimeshield": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "slow": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "smoke": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "sndvol": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "snow": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "snowok": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "snowsleeper": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "snowstealth": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "soft": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "sound": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "soundfx": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "south1": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "south2": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "spawn1d6mon": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "spawn2d6mon": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "spawnmon": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "spawnmonaway": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "spawnoffs": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "specpow": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "spellrange": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "spellweapon": {
+   "sections": [
+    "monster"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 1,
+     "max": 99,
+     "sections": [
+      "monster"
+     ]
+    },
+    {
+     "index": 1,
+     "min": 1,
+     "max": 9,
+     "sections": [
+      "monster"
+     ]
+    }
+   ]
+  },
+  "spellweapon50": {
+   "sections": [
+    "monster"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 1,
+     "max": 99,
+     "sections": [
+      "monster"
+     ]
+    },
+    {
+     "index": 1,
+     "min": 1,
+     "max": 9,
+     "sections": [
+      "monster"
+     ]
+    }
+   ]
+  },
+  "spellweapon50s": {
+   "sections": [
+    "monster"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 1,
+     "max": 99,
+     "sections": [
+      "monster"
+     ]
+    },
+    {
+     "index": 1,
+     "min": 1,
+     "max": 9,
+     "sections": [
+      "monster"
+     ]
+    }
+   ]
+  },
+  "spellweaponbonus": {
+   "sections": [
+    "monster"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 1,
+     "max": 99,
+     "sections": [
+      "monster"
+     ]
+    },
+    {
+     "index": 1,
+     "min": 1,
+     "max": 9,
+     "sections": [
+      "monster"
+     ]
+    }
+   ]
+  },
+  "spellweaponsingle": {
+   "sections": [
+    "monster"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 1,
+     "max": 99,
+     "sections": [
+      "monster"
+     ]
+    },
+    {
+     "index": 1,
+     "min": 1,
+     "max": 9,
+     "sections": [
+      "monster"
+     ]
+    }
+   ]
+  },
+  "spiritsight": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "split": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "spr": {
+   "sections": [
+    "item",
+    "terrain"
+   ]
+  },
+  "spr1": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "spr2": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "spread": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "spreadcold": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "squareench": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "squareevent": {
+   "sections": [
+    "event"
+   ]
+  },
+  "squarespec": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "start": {
+   "sections": [
+    "ritual"
+   ]
+  },
+  "startinsanity": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "startitem": {
+   "sections": [
+    "monster"
+   ]
+  },
+  "startplane": {
+   "sections": [
+    "class"
+   ]
+  },
+  "stationary": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "statue": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "stdtroops": {
+   "sections": [
+    "class"
+   ]
+  },
+  "stealth": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "stone": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "stonebeing": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "stonekill": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "str": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 1,
+     "max": null,
+     "sections": [
+      "monster"
+     ]
+    }
+   ]
+  },
+  "stray": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "strresist": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "stupid": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "subeventvar": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "sum0chance": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "sum0snow": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "sum1chance": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "sum2chance": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "sum3chance": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "sum4chance": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "summoning": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "swallowres": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "swamp": {
+   "sections": [
+    "item",
+    "monster",
+    "terrain"
+   ]
+  },
+  "swamp1": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "swamp2": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "sweep": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "tangleres": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "targetunitloc": {
+   "sections": [
+    "event"
+   ]
+  },
+  "targterr": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "teleport": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "teleportloc": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "tempimmune": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "temple": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "temple1": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "temple2": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "templebonusdescr": {
+   "sections": [
+    "class"
+   ]
+  },
+  "templerec": {
+   "sections": [
+    "class"
+   ]
+  },
+  "terr": {
+   "sections": [
+    "ritual"
+   ]
+  },
+  "terraformch": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "terraformfrom": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "terraformto": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "terrboost": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "terrscale50": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "terrstealth": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "terrstealthinv": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "thrallhunt": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "tiny": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "town1": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "town2": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "townbonusdescr": {
+   "sections": [
+    "class"
+   ]
+  },
+  "trade": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual",
+    "terrain"
+   ]
+  },
+  "tradebonus": {
+   "sections": [
+    "class",
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "tradeboost": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "trample": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "tramplexsize": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "transformtarg": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "translation": {
+   "sections": [
+    "mod"
+   ]
+  },
+  "transport": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "tree": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "treelook": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "trgrank": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "troll": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "trollifyloc": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "tunnel": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "tunnelmove": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "turncastcount": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "twistfate": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "type": {
+   "sections": [
+    "item"
+   ],
+   "clamps": [
+    {
+     "index": 0,
+     "min": 0,
+     "max": 7,
+     "sections": [
+      "item"
+     ]
+    }
+   ]
+  },
+  "ug": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "unaging": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "undead": {
+   "sections": [
+    "item",
+    "monster",
+    "weapon"
+   ]
+  },
+  "undkill": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "unfollowtarg": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "unimportant": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "unique": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual",
+    "terrain"
+   ]
+  },
+  "updatehome": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "updhomeifterr": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "useable": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "varcost": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "varregen": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "vassal": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "vengeance": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "visible": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "void": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "void2": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "voidret": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "voidsanity": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "voidshape": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "voidship": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "wall": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "wallkill": {
+   "sections": [
+    "weapon"
+   ]
+  },
+  "walls": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "wander": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "wanderattack": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "wandermaxdist": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "wanderrest": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "water": {
+   "sections": [
+    "item",
+    "monster",
+    "terrain"
+   ]
+  },
+  "wateronly": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "watershape": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual"
+   ]
+  },
+  "weaponslots": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "weed": {
+   "sections": [
+    "item",
+    "monster",
+    "ritual",
+    "terrain"
+   ]
+  },
+  "winteridle": {
+   "sections": [
+    "item",
+    "monster"
+   ]
+  },
+  "woodencitadel": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "woodengate": {
+   "sections": [
+    "terrain"
+   ]
+  },
+  "yellow": {
+   "sections": [
+    "weapon"
+   ]
+  }
+ }
+}

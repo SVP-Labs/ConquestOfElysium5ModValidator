@@ -1,4 +1,4 @@
-import { lookupCommand, suggestCommand } from "../catalog.js";
+import { engine, engineFacts, lookupCommand, removedFromEngine, suggestCommand } from "../catalog.js";
 import { describedArgs } from "../args.js";
 import { atCommand, atToken } from "../diagnostics.js";
 import { patterns } from "../grammar.js";
@@ -19,6 +19,10 @@ export const levels = {
   arity: "error",
   "arg-type": "error",
   "arg-range": "warning",
+  "not-in-game": "error",
+  "engine-clamp": "warning",
+  "engine-hazard": "error",
+  "engine-quirk": "warning",
 };
 
 export function check({ statements }, bag) {
@@ -30,8 +34,14 @@ export function check({ statements }, bag) {
       continue;
     }
 
+    if (removedFromEngine(statement.name)) {
+      reportRemoved(statement, bag);
+      continue;
+    }
+
     if (!spec.documented) reportUndocumented(statement, spec, bag);
     checkArity(statement, spec, bag);
+    checkEngine(statement, bag);
   }
 
   for (const { statement, token, arg, index } of describedArgs(statements)) {
@@ -50,12 +60,56 @@ function reportUnknown(statement, bag) {
   });
 }
 
+function reportRemoved(statement, bag) {
+  bag.report({
+    rule: "not-in-game",
+    at: atCommand(statement),
+    message: `\`${statement.name}\` is not a mod command in CoE5 ${engine.meta.game}`,
+    hint: "the game's parser does not recognise it and stops with \"mod command '...' did nothing\"",
+  });
+}
+
 function reportUndocumented(statement, spec, bag) {
   bag.report({
     rule: "undocumented-command",
     at: atCommand(statement),
     message: `\`${statement.name}\` is not in the modding manual`,
-    hint: `used ${spec.attested} time(s) in the base game data, so the engine knows it, but its behaviour is unverified`,
+    hint: spec.engineOnly
+      ? `the CoE5 ${engine.meta.game} game accepts it, but it is not in the manual or the base game data`
+      : `used ${spec.attested} time(s) in the base game data, so the engine knows it, but its behaviour is unverified`,
+  });
+}
+
+/** Bounds the game clamps to, and verified hazards, from the binary. */
+function checkEngine(statement, bag) {
+  const facts = engineFacts(statement.name);
+  if (!facts) return;
+
+  for (const { index, min, max, sections } of facts.clamps ?? []) {
+    if (!sections.includes(statement.section)) continue;
+    const token = statement.args[index];
+    if (token?.type !== "number") continue;
+    if ((min === null || token.value >= min) && (max === null || token.value <= max)) continue;
+    const bounds = min !== null && max !== null ? `${min}-${max}` : min !== null ? `at least ${min}` : `at most ${max}`;
+    bag.report({
+      rule: "engine-clamp",
+      at: atToken(statement, token),
+      message: `argument ${index + 1} of \`${statement.name}\` is ${token.value}, but the game only takes ${bounds}`,
+      hint: `CoE5 ${engine.meta.game} clamps or ignores values outside that range`,
+    });
+  }
+
+  const quirk = facts.quirk;
+  if (!quirk) return;
+  if (quirk.when) {
+    const pattern = new RegExp(quirk.when);
+    if (!statement.args.some((token) => token.type === "string" && pattern.test(token.value))) return;
+  }
+  bag.report({
+    rule: quirk.level === "error" ? "engine-hazard" : "engine-quirk",
+    at: atCommand(statement),
+    message: quirk.message,
+    hint: `verified against the CoE5 ${engine.meta.game} game binary`,
   });
 }
 

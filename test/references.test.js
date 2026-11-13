@@ -57,16 +57,19 @@ test("duplicate definitions point at the offset form", () => {
 });
 
 test("a renamed monster answers to both names", () => {
-  assertClean('selectmonster "Baron"\nname "Warlord"\nsetmaincom "Warlord"');
-  assertClean('selectmonster "Baron"\nname "Warlord"\nsetmaincom "Baron"');
+  assertClean('selectmonster "Baron"\nname "Warlord"\nselectclass 1\nsetmaincom "Warlord"');
+  assertClean('selectmonster "Baron"\nname "Warlord"\nselectclass 1\nsetmaincom "Baron"');
 });
 
 test("name inside an item block registers an item name", () => {
   assertClean('selectitem "Ring of Protection"\nname "Bone Ring"\nnewmonster "X"\nstartitem "Bone Ring"');
 });
 
-test("setname inside a ritual block registers a ritual name", () => {
-  assertClean('selectritual "Raise Dead"\nsetname "Raise Them"\nselectritual "Raise Them"');
+test("setname only names terrain groups; in a ritual block the game rejects it", () => {
+  assertClean('selectterrgroup -1001\nsetname "Barrows"');
+  const problem = firstProblem('selectritual "Raise Dead"\nsetname "Raise Them"');
+  assert.equal(problem.rule, "wrong-section");
+  assert.match(problem.hint, /did nothing/);
 });
 
 test("setclassname makes the class reachable by name", () => {
@@ -85,7 +88,7 @@ test("a rename onto an existing mod name is not a duplicate definition", () => {
 });
 
 test("a typo against a renamed monster is still caught", () => {
-  assert.deepEqual(rulesOf('selectmonster "Baron"\nname "Warlord"\nsetmaincom "Warlrd"'), [
+  assert.deepEqual(rulesOf('selectmonster "Baron"\nname "Warlord"\nselectclass 1\nsetmaincom "Warlrd"'), [
     "unknown-monster",
   ]);
 });
