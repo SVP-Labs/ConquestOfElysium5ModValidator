@@ -63,9 +63,17 @@ belongs), and values outside the range the manual documents.
 
 **What the command is talking to.** A mod is one long list of commands, and each
 one applies to whatever `newmonster`, `selectclass` or `newritual` last named.
-Put `hometerr` after a `newritual` and it lands on the ritual. The game will not
-complain; the line just does nothing useful. The checker follows that pointer and
-says so.
+Put `hometerr` after a `newritual` and the game stops loading the mod with
+`mod command 'hometerr' did nothing`; inside an event it skips the line and logs
+`No event command called`. The checker follows that pointer and says so, using
+where the game itself accepts each command.
+
+**What the game does with it.** Values the game clamps or rejects (`hp 0`,
+`modprio 12`, a `combatsum` mode outside -1 to 1), commands the game does not
+recognise even though older references list them (`wander2`), commands the game
+accepts that no reference lists (`holyvengeance`), and a handful of verified
+hazards: `removeanimalcorpses` aborts the game, `+hascom` can never be true,
+`newunits` ignores counts of three or more digits.
 
 **Names.** Every monster, weapon, magic item, ritual and class you name is
 checked against the base game plus everything your own mod has defined *above*
@@ -123,6 +131,13 @@ Where the manual and the game disagree, both are accepted. `power` is documented
 as taking one argument, but every use of it in the game passes two, so either
 works. `fear` is documented as taking a value but is often written bare, so
 either works. The checker never guesses at behaviour neither source shows.
+
+On top of that, `data/engine.json` records what the CoE5 5.42 game binary
+itself does with each command: where its parser acts on it, the bounds it
+enforces, and verified quirks. It is built by `tools/build-engine.mjs` from the
+clean findings of a reverse-engineering pass (facts in our own words, no game
+code). Where it disagrees with the manual about where a command belongs, the
+game wins, because the game is what loads the mod.
 
 It has been run over the base game's own data, around 26,000 lines, and the only
 things it reports there are real quirks: 137 pairs of same named weapons the game

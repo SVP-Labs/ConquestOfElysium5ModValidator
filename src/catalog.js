@@ -22,6 +22,41 @@ export const meta = table.meta;
 /** command name -> { sections, signature, args, arity, pages, attested, notes } */
 export const commands = table.commands;
 
+/**
+ * What the shipped game binary itself does with each command (tools/build-engine.mjs).
+ * Where it disagrees with the manual or the rips about where a command is
+ * accepted, the binary wins: it is the thing that runs the mod.
+ */
+export const engine = readTable("engine.json");
+
+const removedFromGame = new Set(engine.removed);
+
+/** { sections, clamps?, quirk? } for a command the game's parser handles, else null. */
+export function engineFacts(name) {
+  return engine.commands[name] ?? null;
+}
+
+/** Catalog commands the game binary does not recognise at all. */
+export function removedFromEngine(name) {
+  return removedFromGame.has(name);
+}
+
+/**
+ * Commands only the binary knows. They get a permissive stand-in spec so that
+ * a mod using them is not told they do not exist.
+ */
+for (const name of engine.added) {
+  commands[name] ??= {
+    sections: engine.commands[name].sections,
+    signature: null,
+    args: [],
+    arity: { min: 0, max: Infinity },
+    documented: false,
+    attested: 0,
+    engineOnly: true,
+  };
+}
+
 export const vanilla = readTable("vanilla.json");
 
 const commandNames = Object.keys(commands);
