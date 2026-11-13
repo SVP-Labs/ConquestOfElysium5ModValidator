@@ -61,11 +61,12 @@ export function buildRegistry(statements) {
       continue;
     }
 
-    // Terrains 500-999 are the modder's range; anything lower is the base game
-    // being edited rather than a new terrain being made.
+    // Terrains 500-1999 are the modder's range; anything lower is the base game
+    // being edited rather than a new terrain being made, and the game selects
+    // nothing above 1999.
     if (statement.name === "selectterr" && statement.args[0]?.type === "number") {
       const number = statement.args[0].value;
-      if (number >= 500) terrains.add(number);
+      if (number >= 500 && number <= 1999) terrains.add(number);
       continue;
     }
 

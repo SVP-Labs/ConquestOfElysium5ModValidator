@@ -41,7 +41,7 @@ export function check({ statements }, bag) {
 
     if (!spec.documented) reportUndocumented(statement, spec, bag);
     checkArity(statement, spec, bag);
-    checkEngine(statement, bag);
+    checkEngine(statement, spec, bag);
   }
 
   for (const { statement, token, arg, index } of describedArgs(statements)) {
@@ -81,12 +81,15 @@ function reportUndocumented(statement, spec, bag) {
 }
 
 /** Bounds the game clamps to, and verified hazards, from the binary. */
-function checkEngine(statement, bag) {
+function checkEngine(statement, spec, bag) {
   const facts = engineFacts(statement.name);
   if (!facts) return;
 
   for (const { index, min, max, sections } of facts.clamps ?? []) {
-    if (!sections.includes(statement.section)) continue;
+    // Mod-level and opener commands carry "mod": they clamp wherever they appear.
+    if (!sections.includes("mod") && !sections.includes(statement.section)) continue;
+    // A documented range already reports through arg-range.
+    if (spec.args[index]?.min !== undefined) continue;
     const token = statement.args[index];
     if (token?.type !== "number") continue;
     if ((min === null || token.value >= min) && (max === null || token.value <= max)) continue;
