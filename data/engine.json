@@ -1,8 +1,8 @@
 {
  "meta": {
-  "game": "5.42",
+  "game": "5.43",
   "source": "coe5re reverse-engineering findings (clean side)",
-  "generated": "2026-11-13",
+  "generated": "2026-11-18",
   "commands": 859
  },
  "removed": [
@@ -58,7 +58,7 @@
    ],
    "quirk": {
     "level": "warning",
-    "message": "`+hascom` can never be true in 5.42 (the commander lookup runs with no square); `-hascom` always passes"
+    "message": "`+hascom` can never be true in 5.43 (the commander lookup runs with no square); `-hascom` always passes"
    }
   },
   "+hascomhere": {
@@ -4212,7 +4212,12 @@
    ],
    "quirk": {
     "level": "error",
-    "message": "this event command aborts the game in 5.42 (fatal error \"rd: bad ct\")"
+    "message": "this event command aborts the game in 5.43 (fatal error \"rd: bad ct\")",
+    "tested": {
+     "game": "5.43",
+     "date": "2026-11-18",
+     "result": "crash"
+    }
    }
   },
   "removecorpses": {

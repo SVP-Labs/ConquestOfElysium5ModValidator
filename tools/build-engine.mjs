@@ -15,7 +15,7 @@
  * plus the commands the game knows that the catalog lacks (added) and the
  * catalog commands the game does not recognise (removed).
  *
- * Usage: node tools/build-engine.mjs <coe5re>/findings/5.42
+ * Usage: node tools/build-engine.mjs <coe5re>/findings/<version>
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -35,14 +35,16 @@ const triggers = new Set(read(path.join(dir, "parser-map", "D1.json")).map((row)
 const version = rows[0]?.version ?? "unknown";
 
 // Hand-checked against the code; each one is in coe5re DECISIONS.md or a mechanics finding.
+// `test` names an entry of findings/<version>/ingame-tests.json when the claim was also run in the real game.
 const QUIRKS = {
   removeanimalcorpses: {
     level: "error",
-    message: "this event command aborts the game in 5.42 (fatal error \"rd: bad ct\")",
+    message: `this event command aborts the game in ${version} (fatal error "rd: bad ct")`,
+    test: "removeanimalcorpses-event",
   },
   "+hascom": {
     level: "warning",
-    message: "`+hascom` can never be true in 5.42 (the commander lookup runs with no square); `-hascom` always passes",
+    message: `\`+hascom\` can never be true in ${version} (the commander lookup runs with no square); \`-hascom\` always passes`,
   },
   "+minunitshere": {
     level: "warning",
@@ -54,6 +56,9 @@ const QUIRKS = {
     message: "a count of three or more digits is not understood and creates one unit; use dice (e.g. `3d6*`) or a count up to 99",
   },
 };
+
+const testsFile = path.join(dir, "ingame-tests.json");
+const tests = fs.existsSync(testsFile) ? Object.fromEntries(read(testsFile).map((t) => [t.id, t])) : {};
 
 // Event conditions are written with a +/- prefix and the catalog keys them as `+name`.
 function catalogKey(row) {
@@ -93,7 +98,14 @@ const out = {};
 for (const [key, entry] of Object.entries(commands).sort(([a], [b]) => a.localeCompare(b))) {
   const value = { sections: [...entry.sections].sort() };
   if (entry.clamps.length) value.clamps = entry.clamps;
-  if (QUIRKS[key]) value.quirk = QUIRKS[key];
+  if (QUIRKS[key]) {
+    const { test, ...quirk } = QUIRKS[key];
+    if (test && tests[test]) {
+      const { game, date, result } = tests[test];
+      quirk.tested = { game, date, result };
+    }
+    value.quirk = quirk;
+  }
   out[key] = value;
 }
 

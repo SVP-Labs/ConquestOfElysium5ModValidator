@@ -79,10 +79,11 @@ hazards: `removeanimalcorpses` aborts the game, `+hascom` can never be true,
 checked against the base game plus everything your own mod has defined *above*
 that line, including names given after the fact with `name`, `setname` and
 `setclassname`. Referring to something you define later is an error. Assigning
-a weapon to a monster before the weapon exists is the one case the manual
-promises will crash the game and reports as `use-before-define`; every other
-forward reference reports as `forward-reference`, which can be turned down if
-you know better than the checker does. Terrain numbers,
+a weapon to a monster before the weapon exists reports as `use-before-define`:
+the manual says it crashes, but in the game (tested in 5.43) the line is simply
+ignored and the monster gets no such attack. Every other forward reference
+reports as `forward-reference`, which can be turned down if you know better
+than the checker does. Terrain numbers,
 resource types, player numbers and ritual school numbers are range checked.
 Summon strings like `"c*Captain & 2d6*Spearman"` and recruitment conditions like
 `"+Baron"` are pulled apart and the names inside them checked too.
@@ -132,12 +133,13 @@ as taking one argument, but every use of it in the game passes two, so either
 works. `fear` is documented as taking a value but is often written bare, so
 either works. The checker never guesses at behaviour neither source shows.
 
-On top of that, `data/engine.json` records what the CoE5 5.42 game binary
+On top of that, `data/engine.json` records what the CoE5 5.43 game binary
 itself does with each command: where its parser acts on it, the bounds it
 enforces, and verified quirks. It is built by `tools/build-engine.mjs` from the
 clean findings of a reverse-engineering pass (facts in our own words, no game
 code). Where it disagrees with the manual about where a command belongs, the
-game wins, because the game is what loads the mod.
+game wins, because the game is what loads the mod. Claims that were also run in
+the real game say so in their hint ("tested in the real game, CoE5 5.43").
 
 It has been run over the base game's own data, around 26,000 lines, and the only
 things it reports there are real quirks: 137 pairs of same named weapons the game

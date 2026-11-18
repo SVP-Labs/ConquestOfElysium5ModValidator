@@ -112,7 +112,9 @@ function checkEngine(statement, spec, bag) {
     rule: quirk.level === "error" ? "engine-hazard" : "engine-quirk",
     at: atCommand(statement),
     message: quirk.message,
-    hint: `verified against the CoE5 ${engine.meta.game} game binary`,
+    hint: quirk.tested
+      ? `tested in the real game, CoE5 ${quirk.tested.game} (${quirk.tested.date})`
+      : `read from the CoE5 ${engine.meta.game} game code`,
   });
 }
 
