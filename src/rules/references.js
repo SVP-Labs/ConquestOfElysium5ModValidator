@@ -6,26 +6,24 @@ import { label } from "../sections.js";
  * Does the thing this argument names actually exist, and does it exist yet.
  *
  * Names resolve against the base game plus whatever the mod has defined *above*
- * the line doing the referring. Order matters here in a way it does not in most
- * formats: "modding a new weapon must be done before assigning it to a new
- * monster (or an existing monster) or the mod will crash".
+ * the line doing the referring. Order matters: mod commands run top to bottom,
+ * so a name defined further down does not exist yet when the line runs.
  */
 
 const KINDS = ["monster", "weapon", "item", "ritual", "class"];
 
 /**
- * "Mod commands are executed from the beginning of the file to the end of the
- * file. Make sure that commands that are prerequisites for others appear
- * before the commands that require them. For example, modding a new weapon
- * must be done before assigning it to a new monster (or an existing monster)
- * or the mod will crash."
+ * The manual singles out one forward reference: "modding a new weapon must be
+ * done before assigning it to a new monster (or an existing monster) or the mod
+ * will crash". It keeps its own rule id, `use-before-define`, so it can stay
+ * loud while `forward-reference` is turned down.
  *
- * That is the one forward reference the manual promises will crash. Whether
- * the others crash or misbehave quietly is undocumented, so they report under
- * `forward-reference`, which can be turned down while the documented crash
- * stays loud. A future manual naming another crashing case goes in this list.
+ * It does not crash. Tested in CoE5 5.43 (2026-11-18): a monster naming a weapon
+ * defined further down loads and plays; the game cannot find the weapon yet and
+ * ignores the line, so the monster simply lacks that attack. Still an error:
+ * the line does nothing.
  */
-const CRASHING_FORWARD_REFERENCES = [{ ref: "weapon", section: "monster" }];
+const MANUAL_FORWARD_REFERENCES = [{ ref: "weapon", section: "monster" }];
 
 export const levels = {
   "unknown-monster": "error",
@@ -59,13 +57,13 @@ export function check({ statements, registry }, bag) {
     }
 
     if (isForwardReference(found, statement)) {
-      const crashes = willCrash(kind, statement);
+      const named = namedByManual(kind, statement);
       bag.report({
-        rule: crashes ? "use-before-define" : "forward-reference",
+        rule: named ? "use-before-define" : "forward-reference",
         at,
         message: `"${token.value}" is not defined until line ${found.definedAt}`,
-        hint: crashes
-          ? 'move the weapon above this line, "or the mod will crash"'
+        hint: named
+          ? "the game ignores this line (the weapon does not exist yet), so the monster gets no such attack; move the weapon above it"
           : "mod commands run top to bottom, move the definition above this line",
       });
     }
@@ -88,8 +86,8 @@ function isForwardReference(found, statement) {
   return !found.inBaseGame && found.definedAt !== null && found.definedAt > statement.line;
 }
 
-function willCrash(kind, statement) {
-  return CRASHING_FORWARD_REFERENCES.some(
+function namedByManual(kind, statement) {
+  return MANUAL_FORWARD_REFERENCES.some(
     (crash) => crash.ref === kind && crash.section === statement.section,
   );
 }

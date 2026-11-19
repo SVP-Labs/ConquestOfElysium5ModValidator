@@ -1,5 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { lintSource } from "../src/linter.js";
 import { assertClean, firstProblem, rulesOf } from "./helpers.js";
 
 test("a catalog command the game does not recognise is an error", () => {
@@ -34,6 +35,19 @@ test("values the game clamps are flagged", () => {
 test("verified hazards are reported", () => {
   assert.ok(rulesOf("playerevent\nremoveanimalcorpses 3\nendevent").includes("engine-hazard"));
   assert.ok(rulesOf("playerevent\n+hascom 1 \"Baron\"\nendevent").includes("engine-quirk"));
+});
+
+test("a hazard tested in the real game says so; one read from code says that", () => {
+  const tested = lintSource("playerevent\nremoveanimalcorpses 3\nendevent").find((p) => p.rule === "engine-hazard");
+  assert.match(tested.hint, /tested in the real game, CoE5 5\.\d+/);
+  const read = lintSource('playerevent\n+hascom 1 "Baron"\nendevent').find((p) => p.rule === "engine-quirk");
+  assert.match(read.hint, /read from the CoE5 5\.\d+ game code/);
+});
+
+test("the weapon-before-monster hint says the line is ignored, not that it crashes", () => {
+  const problem = lintSource('newmonster "X"\nmeleeweapon 4 "Later Blade"\n\nnewweapon "Later Blade"\ndmg 3').find((p) => p.rule === "use-before-define");
+  assert.match(problem.hint, /ignores this line/);
+  assert.doesNotMatch(problem.hint, /crash/);
 });
 
 test("a quirk with a condition only fires when it matches", () => {
